@@ -1,4 +1,7 @@
 # BDS-Manager
+
+![BDS-Manager Logo](https://github.com/user-attachments/assets/722a4117-20c6-4102-af6f-03d602fcfc2f)
+
 (Bedrock Dedicated Server) Manager With Built IN [Playit.gg Tunnel System](https://playit.gg/)
 
 This is a Heavily Modified Version of the [Mcb-gui Made by Whyisthesheep](https://github.com/whyisthesheep/mcb-gui)
