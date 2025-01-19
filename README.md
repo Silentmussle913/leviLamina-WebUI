@@ -12,7 +12,7 @@ The GUI/UI:
 # Steps to Install (the Easy way Compared to the other)
 GO to Releases And Download the Latest Release (Packaged Version) and Put ur server FIles inside the server folder after Which Run
 the Start.bat file and thats it.
-The Latest Release Would be in [<Press>](https://github.com/Silentmussle913/BDS-Manager/releases/tag/Main_Release)
+The Latest Release Would be in [Press](https://github.com/Silentmussle913/BDS-Manager/releases/tag/Main_Release)
 
 # Steps to Install From REPO:
 Have [Git](https://git-scm.com/downloads) and [Node](https://nodejs.org/en/download/) Installed
