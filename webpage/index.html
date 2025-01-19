@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Control Panel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .menu {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      margin: 5px;
+      flex: 0 0 250px;
+      min-width: 250px;
+    }
+
+    .output {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      margin: 5px;
+      flex-grow: 1;
+      min-width: 350px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #444;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    button.danger {
+      background: #dc3545;
+    }
+
+    button.danger:hover {
+      background: #b02a37;
+    }
+
+    .dropdown {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .output-content {
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      min-height: 150px;
+      overflow-y: auto;
+      font-size: 14px;
+      flex-grow: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .menu, .output {
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+      .dropdown {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+      .output-content {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Menu Section -->
+    <div class="menu">
+      <h2>Server Options</h2>
+      <button onclick="startServer()">Start Server</button>
+      <button class="danger" onclick="stopServer()">Stop Server</button>
+      <button onclick="restartServer()">Restart Server</button>
+
+      <h2>Difficulty</h2>
+      <select id="difficulty" class="dropdown">
+        <option value="peaceful">Peaceful</option>
+        <option value="easy">Easy</option>
+        <option value="normal">Normal</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button onclick="setDifficulty()">Set Difficulty</button>
+
+      <h2>Time</h2>
+      <select id="time" class="dropdown">
+        <option value="day">Day</option>
+        <option value="night">Night</option>
+        <option value="noon">Noon</option>
+        <option value="midnight">Midnight</option>
+      </select>
+      <button onclick="setTime()">Set Time</button>
+
+      <h2>Players</h2>
+      <button onclick="fetchPlayers()">Show Online Players</button>
+
+      <h2>Tunnel</h2>
+      <button onclick="startTunnel()">Start Tunnel</button>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output">
+      <h2>Output</h2>
+      <div id="output" class="output-content">Select an option to see the result here...</div>
+    </div>
+  </div>
+
+  <script>
+    const outputElement = document.getElementById('output');
+
+    function showOutput(message) {
+      outputElement.innerText = message;
+    }
+
+    function startServer() {
+      fetch('/start', { method: 'POST' })
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function stopServer() {
+      fetch('/stop', { method: 'POST' })
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function restartServer() {
+      fetch('/restart', { method: 'POST' })
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function setDifficulty() {
+      const level = document.getElementById('difficulty').value;
+      fetch(`/difficulty/${level}`)
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function setTime() {
+      const time = document.getElementById('time').value;
+      fetch(`/time/${time}`)
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function fetchPlayers() {
+      fetch('/players')
+        .then(response => response.text())
+        .then(data => showOutput(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function startTunnel() {
+      fetch('/start-tunnel', { method: 'POST' })
+        .then(response => {
+          if (response.body) {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            reader.read().then(function processText({ done, value }) {
+              if (done) return;
+              showOutput(decoder.decode(value));
+              reader.read().then(processText);
+            });
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+</body>
+</html>
