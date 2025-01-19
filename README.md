@@ -9,6 +9,7 @@ The GUI/UI:
 # Steps to Install:
 Clone the Repository by doing ``Git clone https://github.com/Silentmussle913/BDS-Manager.git`` 
 after cloning Install ur prefered version of the minecraft bedrock dedicated server software and unzip it inside the server folder of the cloned repository like this:
+
 ![image](https://github.com/user-attachments/assets/e127e71d-ba58-4253-a233-733f39da9d18)
 
 after Finishing the unzipping now do node app.js or click the ``start.bat``
