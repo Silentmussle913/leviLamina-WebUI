@@ -3,132 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BDS-Manager with Playit Protocol</title>
+  <title>BDS-Manager</title>
   <style>
-    /* Base reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Body and Layout Setup */
+    /* Styling */
     body {
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* Ensures body height fills viewport */
       background-color: #f5f5f5;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       background-color: #0078d7;
       color: white;
-      text-align: center;
       padding: 20px 10px;
+      text-align: center;
     }
 
-    header h1 {
-      margin: 0;
+    nav {
+      background-color: #005fa3;
+      text-align: center;
+      padding: 10px;
     }
 
-    header p {
-      font-size: 1.2em;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
     }
 
     main {
-      flex: 1; /* Pushes footer to bottom when content is small */
       padding: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    section {
-      margin-bottom: 30px;
-    }
-
-    section h2 {
-      color: #0078d7;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 20px;
-      background-color: #0078d7;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    .button:hover {
-      background-color: #005fa3;
     }
 
     footer {
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 15px 10px;
-      position: relative; /* This ensures it behaves consistently */
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer a {
-      color: #00aaff;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+      padding: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>BDS-Manager with Playit Protocol</h1>
-    <p>The Ultimate Bedrock Dedicated Server Manager</p>
+    <h1>BDS-Manager</h1>
+    <p>Efficient tool for managing Bedrock Dedicated Servers.</p>
   </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../zeqa-terminal/index.html">Zeqa Terminal</a>
+  </nav>
 
   <main>
     <section>
-      <h2>About the Project</h2>
-      <p>
-        The <strong>BDS-Manager</strong> is a lightweight and efficient tool for managing Bedrock Dedicated Servers with the Playit protocol built-in for seamless tunneling. 
-        It simplifies server hosting for Minecraft Bedrock Edition, allowing you to focus on creating a great gaming experience.
-      </p>
-    </section>
-
-    <section>
-      <h2>Features</h2>
-      <ul>
-        <li>Easy server setup and management</li>
-        <li>Integrated Playit protocol for automatic tunneling</li>
-        <li>Customizable configurations</li>
-        <li>Efficient resource management</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>How to Use</h2>
-      <p>To get started with the BDS-Manager:</p>
-      <ol>
-        <li>Clone the repository from the link below.</li>
-        <li>Place your server files into the <code>server</code> folder.</li>
-        <li>Run <code>start.bat</code> to launch the manager.</li>
-      </ol>
-      <a href="https://github.com/Silentmussle913/BDS-Manager" class="button" target="_blank">Download BDS-Manager</a>
+      <h2>About BDS-Manager</h2>
+      <p>Manage your Bedrock Dedicated Servers with ease using this lightweight tool.</p>
     </section>
   </main>
 
   <footer>
-    <p>
-      &copy; 2025 Silentmussle913. Built with ❤️ for the Minecraft Bedrock community. 
-      Check out the project on <a href="https://github.com/Silentmussle913/BDS-Manager" target="_blank">GitHub</a>.
-    </p>
+    <p>© 2025 Silentmussle913 | <a href="https://github.com/Silentmussle913/BDS-Manager">GitHub</a></p>
   </footer>
 </body>
 </html>
