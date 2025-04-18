@@ -17,7 +17,7 @@ let tunnelProcess; // Variable to hold the tunnel process
 // Start the Bedrock server
 app.post('/start', (req, res) => {
   if (!bedrockProcess) {
-    bedrockProcess = spawn('server/bedrock_server.exe', { stdio: ['pipe', 'pipe', 'pipe', 'ipc'] });
+    bedrockProcess = spawn('server/bedrock_server_mod.exe', { stdio: ['pipe', 'pipe', 'pipe', 'ipc'] });
 
     bedrockProcess.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`);
